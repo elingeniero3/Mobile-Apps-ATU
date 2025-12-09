@@ -21,6 +21,17 @@
 <ion-content [fullscreen]="true">
    
   <ion-input label="Enter Ingredients" placeholder="Ingredients" [(ngModel)]="ingredients"></ion-input>
-  <ion-button expand="block" (click)="onSearch()">SEARCH</ion-button>
-  
+  <ion-button expand="block" (click)="searchRecipes()">SEARCH</ion-button>
+
+  <!--Displaying the recipes-->
+  <ion-card *ngFor="let recipe of recipeInfo">
+    <img src="{{recipe.image}}" />
+    <ion-card-header>
+      <ion-card-title>{{recipe.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-button (click)="RecipeDetails()">DETAILS</ion-button>
+  </ion-card-content>
+</ion-card>
+
 </ion-content>
