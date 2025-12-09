@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h2>Display Recipe Measurements In:</h2>
+  <div>
+  <label>Metric
+  <input 
+    type="radio"
+    name="measurementRadio" 
+    [checked]="measurement === 'Metric'"
+    (change)="onMeasurementChange('Metric')"
+  >
+  </label>
+  </div>
+
+  <div>
+  <label>US
+  <input 
+    type="radio"
+    name="measurementRadio" 
+    [checked]="measurement === 'US'"
+    (change)="onMeasurementChange('US')"
+  >
+  </label>
+  </div>
+
+</ion-content>
