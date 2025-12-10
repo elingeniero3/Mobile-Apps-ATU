@@ -17,19 +17,19 @@ export class SettingsPage implements OnInit {
   constructor(private mds: Data) { }
 
   async ngOnInit() {
-    const saved = await this.mds.get('Measurement');
+    const saved = await this.mds.get('MEASUREMENT_KEY');
     if (saved === 'Metric' || saved === 'US') {
       this.measurement = saved;
     }
     else{
-      await this.mds.set('Measurement', this.measurement);
+      await this.mds.set('MEASUREMENT_KEY', this.measurement);
     }
   }
   
   async onMeasurementChange(value: string) {
   if (value !== this.measurement) {
     this.measurement = value;
-    await this.mds.set("Measurement",this.measurement);
+    await this.mds.set("MEASUREMENT_KEY",this.measurement);
   }
 }
 }

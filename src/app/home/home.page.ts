@@ -47,8 +47,9 @@ export class HomePage {
     console.log(JSON.stringify(this.recipeInfo));
   }
 
-  RecipeDetails(){
-    //TBD
+  async RecipeDetails(recipeId: number){
+    await this.ds.set('selectedRecipeId', recipeId);
+    this.router.navigate(['/recipe-details']);
   }
 
   

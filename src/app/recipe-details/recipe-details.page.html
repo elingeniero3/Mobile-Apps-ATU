@@ -1,13 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>recipe-details</ion-title>
+    <ion-title>Ingredients</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recipe-details</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <!--Displaying the Ingredients-->
+  <ion-card *ngFor="let ing of recipeIng?.extendedIngredients">
+    <img src="{{ 'https://spoonacular.com/cdn/ingredients_500x500/' + ing.image }}" />
+    <ion-card-header>
+      <ion-card-title>{{ing.original}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <!-- METRIC -->
+    <ng-container *ngIf="isMetric(); else usBlock">
+      {{ ing.measures.metric.amount }} {{ ing.measures.metric.unitLong }}
+    </ng-container>
+
+    <!-- US -->
+    <ng-template #usBlock>
+      {{ ing.measures.us.amount }} {{ ing.measures.us.unitLong }}
+    </ng-template>
+    </ion-card-content>
+</ion-card>
 </ion-content>
