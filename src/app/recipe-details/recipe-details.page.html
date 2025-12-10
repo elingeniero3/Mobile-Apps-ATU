@@ -23,5 +23,13 @@
       {{ ing.measures.us.amount }} {{ ing.measures.us.unitLong }}
     </ng-template>
     </ion-card-content>
-</ion-card>
+  </ion-card>
+
+  <!-- INSTRUCTIONS -->
+  <h2>Instructions</h2>
+  <ol>
+    <li *ngFor="let step of recipeIng?.analyzedInstructions[0]?.steps">
+      {{ step.step }}
+    </li>
+  </ol>
 </ion-content>
