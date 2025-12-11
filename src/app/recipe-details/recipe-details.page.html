@@ -32,4 +32,13 @@
       {{ step.step }}
     </li>
   </ol>
+
+  <ion-content>
+
+  <!-- FAVOURITE BUTTON-->
+  <ion-button expand="block" (click)="toggleFavourite()">
+    {{ isFavourite ? 'Remove From Favourites' : 'Add To Favourites' }}
+  </ion-button>
+
+</ion-content>
 </ion-content>
