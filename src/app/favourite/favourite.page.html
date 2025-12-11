@@ -5,9 +5,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">favourite</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <p *ngIf="favourites.length === 0">No favourites yet.</p>
+
+  <!-- List of favourites -->
+  <ion-card *ngFor="let fav of favourites">
+    <img [src]="fav.image" />
+
+    <ion-card-header>
+      <ion-card-title>{{ fav.title }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-button (click)="openDetails(fav.id)">
+      DETAILS
+    </ion-button>
+  </ion-card>
+
 </ion-content>
